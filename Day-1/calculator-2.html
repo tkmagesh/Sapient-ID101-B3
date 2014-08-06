@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Calculator</title>
+	<style>
+	label{
+		display : block;
+	}
+	</style>
+	<script type="text/javascript">
+		function doAdd(){
+		   var n1 = document.getElementById("txtNumber1").value;
+		   var n2 = document.getElementById("txtNumber2").value;
+	   		var result = parseInt(n1,10) + parseInt(n2,10);
+		   		displayResult(result);
+	
+		   
+		}
+		function checkErrorForNumber1(){
+			var n1 = document.getElementById("txtNumber1").value;
+		 
+			if (n1 == ""){
+		   		document.getElementById("spanErrorNumber1").style.display = "inline";
+		   } else {
+		   		document.getElementById("spanErrorNumber1").style.display = "none";
+		   }
+		   resetButtons();
+		}
+
+		function checkErrorForNumber2(){
+			
+		   var n2 = document.getElementById("txtNumber2").value;
+		   if (n2 == ""){
+		   		document.getElementById("spanErrorNumber2").style.display = "inline";
+		   } else {
+		   		document.getElementById("spanErrorNumber2").style.display = "none";
+		   }
+		   resetButtons();
+		}
+		function resetButtons(){
+			var n1 = document.getElementById("txtNumber1").value;
+			var n2 = document.getElementById("txtNumber2").value;
+			var isInValid = (n1 == "" || n2 == "");
+		   	document.getElementById("btnAdd").disabled = isInValid;
+		   	document.getElementById("btnSubtract").disabled = isInValid;
+		}
+
+		function displayResult(result){
+			if (result > 0){
+		   		document.getElementById("divResult").style.color = "green";
+		   		document.getElementById("divResult").innerText = result;
+		   } else {
+		   		document.getElementById("divResult").style.color = "red";
+		   		document.getElementById("divResult").innerText = "(" + result + ")";
+		   }
+		}
+		function doSubtract(){
+		   var n1 = document.getElementById("txtNumber1").value;
+		   var n2 = document.getElementById("txtNumber2").value;
+		   var result = parseInt(n1,10) - parseInt(n2,10);
+		   displayResult(result);
+		  
+		}
+		function init(){
+			var btnAdd = document.getElementById("btnAdd");
+			btnAdd.onclick = doAdd;
+			document.getElementById("btnSubtract").onclick = doSubtract;
+			document.getElementById("spanErrorNumber1").style.display = "none";
+			document.getElementById("spanErrorNumber2").style.display = "none";
+
+			document.getElementById("txtNumber1").onblur = checkErrorForNumber1;
+			document.getElementById("txtNumber2").onblur = checkErrorForNumber2;
+			resetButtons();
+		}
+		window.onload = init;
+	</script>
+</head>
+<body>
+	<div>
+		<label for="">Number 1:</label>
+		<input type="text" name="" id="txtNumber1">
+		<span class="error" id="spanErrorNumber1">Number1 cannot be empty</span>
+	</div>
+	<div>
+		<label for="">Number 2:</label>
+		<input type="text" name="" id="txtNumber2">
+		<span class="error" id="spanErrorNumber2">Number2 cannot be empty</span>
+	</div>
+	<div>
+		<input type="button" value="Add" id="btnAdd" >
+		<input type="button" value="Subtract" id="btnSubtract">
+	</div>
+
+	<div>
+		<div id="divResult" style="color:red;"></div>
+	</div>
+</body>
+</html>
