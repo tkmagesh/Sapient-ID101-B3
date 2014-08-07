@@ -1,0 +1,9 @@
+write a function "getEmployee" that returns an employee object with the following attributes
+	id
+	name
+	basic
+	tax -> in percent
+
+	calculateSalary() -> returns the salary after tax
+
+the "getEmployee" function should accept the initial values for all the employee attributes and initalize the employee object with the values before returning it.
