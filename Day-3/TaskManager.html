@@ -6,7 +6,7 @@
 	<!-- 
 	Use Cases :
 	===========
-	1. Should be able a new task
+	1. Should be able to add a new task
 	2. Should be able to mark/unmark a task as "completed"
 	3. Should be able to remove completed tasks from the list
 	4. Display a message whenever a task is added or removed
@@ -29,6 +29,46 @@
 		cursor: pointer;
 	}
 	</style>
+	<script>
+		window.addEventListener("DOMContentLoaded", init);
+		function init(){
+			document.getElementById("btnAdd").addEventListener("click",onBtnAddTaskClick);
+			document.getElementById("btnRemoveCompleted").addEventListener("click", onBtnRemoveCompletedClick);
+			var allTaskItems = document.querySelectorAll("#taskList > li");
+			for(var i=0;i<allTaskItems.length;i++){
+				allTaskItems[i].addEventListener("click", onTaskItemClick);
+			}
+
+		}
+		function onBtnRemoveCompletedClick(){
+			/*var allTaskItems = document.getElementById("taskList").children;
+			for(var i=allTaskItems.length - 1;i>=0;i--){
+				if (allTaskItems[i].classList.contains("completed")){
+					allTaskItems[i].remove();
+				}
+			}*/
+			var allCompletedTaskItems = document.querySelectorAll("#taskList > li.completed");
+			for(var i=allCompletedTaskItems.length;i>=0;i--)
+				allCompletedTaskItems[i].remove();
+		} 
+		function onTaskItemClick(){
+			this.classList.toggle("completed");
+		}
+		function onBtnAddTaskClick(){
+		   console.log("Add button clicked");
+		   var taskName = document.getElementById("txtTask").value;
+		   var taskList = document.getElementById("taskList");
+
+		   /*var newTaskItem = "<li>" + taskName + "</li>";
+		     taskList.innerHTML += newTaskItem;*/
+
+		   var newTaskItem = document.createElement("li");
+		   newTaskItem.innerText = taskName;
+		   newTaskItem.addEventListener("click", onTaskItemClick);
+		   taskList.appendChild(newTaskItem);
+		}
+
+	</script>
 </head>
 <body>
 	<h1>Task Manager</h1>
@@ -39,10 +79,13 @@
 		<input type="button" value="Remove Completed" id="btnRemoveCompleted">
 		<ol id="taskList">
 			<li>Task - 1</li>
-			<li class="completed">Task - 2</li>
+			<li>Task - 2</li>
 			<li>Task - 3</li>
+			<li>Task - 4</li>
+			<li>Task - 5</li>
+			<li>Task - 6</li>
 		</ol>
-		<div id="message"></div>
+
 	</div>
 </body>
 </html>
