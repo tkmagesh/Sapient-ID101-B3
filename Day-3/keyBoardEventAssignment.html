@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script type="text/javascript">
+		window.addEventListener("DOMContentLoaded", init);
+		function init(){
+			document.getElementById("txtName").addEventListener("keypress", onKeyPress);
+		}
+		function onKeyPress(evt){
+			var txtName = document.getElementById("txtName");
+			if (txtName.value.length < 10 ){
+				if (!((evt.keyCode >= 65 && evt.keyCode <= 90) || (evt.keyCode >= 97 && evt.keyCode <= 122))){
+					evt.preventDefault();
+				}
+			} else {
+				evt.preventDefault();
+			}
+		}
+	</script>
+</head>
+<body>
+	<label for="txtFirstName">First Name :</label><input type="text" name="" id="txtFirstName">
+	<label for="txtFirstName">Last Name :</label><input type="text" name="" id="txtLastName">
+</body>
+</html>

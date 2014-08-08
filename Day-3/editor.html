@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Editor</title>
+	<script>
+		window.addEventListener("keypress", onKeyPress);
+		function onKeyPress(evt){
+			var character = String.fromCharCode(evt.keyCode);
+			document.getElementById("content").innerText += character;
+		}
+	</script>
+</head>
+<body>
+	<div id="content"></div>
+</body>
+</html>

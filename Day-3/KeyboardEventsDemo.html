@@ -7,13 +7,15 @@
 		window.addEventListener("DOMContentLoaded", init);
 		function init(){
 			document.getElementById("txtInput").addEventListener("keypress", onKeyPress);
-			//document.getElementById("txtInput").addEventListener("keydown", onKeyUp);
-			//document.getElementById("txtInput").addEventListener("keyup", onKeyDown);
+			//document.getElementById("txtInput").addEventListener("keydown", onKeyDown);
+			//document.getElementById("txtInput").addEventListener("keyup", onKeyUp);
 		}
 		function onKeyPress(keyboardEvent){
-			console.dir(keyboardEvent);
+			console.log(keyboardEvent.keyCode);
+			keyboardEvent.preventDefault();
 		}
-		function onKeyDown(){
+		function onKeyDown(evt){
+			console.dir(evt);
 			console.log("KeyDown event triggered");
 		}
 		function onKeyUp(){
@@ -22,6 +24,6 @@
 	</script>
 </head>
 <body>
-	<input type="text" name="" id="txtInput">
+	<input type="text" name="" id="txtInput" value="Magesh">
 </body>
 </html>
