@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>This in event handler</title>
+	<script>
+	window.addEventListener("DOMContentLoaded", init);
+	function init(){
+		document.getElementById("btnOne").addEventListener("click", onButtonClick);
+		document.getElementById("btnTwo").addEventListener("click", onButtonClick);
+	}
+
+	function onButtonClick(){
+		displayMessage(this.value + " is clicked");
+	}
+
+	function onButtonOneClick(){
+		displayMessage("Button one is clicked");
+	}
+	function onButtonTwoClick(){
+		displayMessage("Button two is clicked");
+	}
+
+
+	function displayMessage(msg){
+		document.getElementById("message").innerText = msg;
+	}
+	</script>
+</head>
+<body>
+	<input type="button" value="Button One" id="btnOne"><input type="button" value="Button Two" id="btnTwo">
+	<div id="message"></div>
+</body>
+</html>

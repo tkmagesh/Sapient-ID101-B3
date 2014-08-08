@@ -3,14 +3,24 @@
 <head>
 	<meta charset="UTF-8">
 	<title></title>
+	<style>
+		input[type="text"]{
+			border : 1px solid red;
+		}
+	</style>
 	<script type="text/javascript">
 		window.addEventListener("DOMContentLoaded", init);
 		function init(){
-			document.getElementById("txtName").addEventListener("keypress", onKeyPress);
+			/*document.getElementById("txtFirstName").addEventListener("keypress", onKeyPress);
+			document.getElementById("txtLastName").addEventListener("keypress", onKeyPress);*/
+
+			var allTextBoxes = document.querySelectorAll('input[type="text"]');
+			for(var i=0;i<allTextBoxes.length;i++)
+				allTextBoxes[i].addEventListener("keypress", onKeyPress);
 		}
 		function onKeyPress(evt){
-			var txtName = document.getElementById("txtName");
-			if (txtName.value.length < 10 ){
+			//var txtName = document.getElementById("txtName");
+			if (this.value.length < 10 ){
 				if (!((evt.keyCode >= 65 && evt.keyCode <= 90) || (evt.keyCode >= 97 && evt.keyCode <= 122))){
 					evt.preventDefault();
 				}
@@ -21,7 +31,9 @@
 	</script>
 </head>
 <body>
-	<label for="txtFirstName">First Name :</label><input type="text" name="" id="txtFirstName">
+	<label for="txtFirstName">First Name :</label><input type="text" name="" id="txtFirstName"><br>
+	<label for="txtFirstName">Middle Name :</label><input type="text" name="" id="txtMiddleName"><br>
 	<label for="txtFirstName">Last Name :</label><input type="text" name="" id="txtLastName">
+	<input type="button" value="Button One">
 </body>
 </html>
