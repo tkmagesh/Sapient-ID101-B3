@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Greet App</title>
+		<style type="text/css">
+			.error{
+				border : 2px solid red;
+				background-color: lightpink;
+			}
+		</style>
+		<script type="text/javascript">
+			function doGreet(){
+				var txtName = document.getElementById("txtName");
+				var name = txtName.value;
+				if(name !== ""){
+					var msg = "Hello " + name + ", Have a nice day";
+			    	document.getElementById("divMessage").innerText = msg;	
+			    	txtName.classList.remove("error");
+				} else {
+					txtName.classList.add("error");
+				}
+			    
+			}
+			function init(){
+				document.getElementById("btnGreet").addEventListener("click",doGreet);
+			}
+			window.addEventListener("DOMContentLoaded", init);
+		</script>
+	</head>
+	<body>
+		<span>Name :</span>
+		<input type="text" name="" id="txtName">
+		<input type="button" value="Greet" id="btnGreet">
+		<div id="divMessage" class="classOne classTwo classThree">
+			<span>[Sample Content]</span>
+		</div>
+	</body>
+</html>

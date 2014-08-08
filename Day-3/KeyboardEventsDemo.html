@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Keyboard Events - Demo</title>
+	<script type="text/javascript">
+		window.addEventListener("DOMContentLoaded", init);
+		function init(){
+			document.getElementById("txtInput").addEventListener("keypress", onKeyPress);
+			//document.getElementById("txtInput").addEventListener("keydown", onKeyUp);
+			//document.getElementById("txtInput").addEventListener("keyup", onKeyDown);
+		}
+		function onKeyPress(keyboardEvent){
+			console.dir(keyboardEvent);
+		}
+		function onKeyDown(){
+			console.log("KeyDown event triggered");
+		}
+		function onKeyUp(){
+			console.log("KeyUp event triggered");
+		}
+	</script>
+</head>
+<body>
+	<input type="text" name="" id="txtInput">
+</body>
+</html>
