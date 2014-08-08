@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Task Manager</title>
+	<!-- 
+	Use Cases :
+	===========
+	1. Should be able a new task
+	2. Should be able to mark/unmark a task as "completed"
+	3. Should be able to remove completed tasks from the list
+	4. Display a message whenever a task is added or removed
+
+	-->
+	<style>
+	h1{
+		border-top: 2px solid blue;
+		border-bottom: 2px solid blue;
+		background-color: lightblue;
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}
+	.completed{
+		color: red;
+		text-decoration: line-through;
+		font-style: italic;
+	}
+	li{
+		cursor: pointer;
+	}
+	</style>
+</head>
+<body>
+	<h1>Task Manager</h1>
+	<div class="content">
+		<label for="">Task :</label>
+		<input type="text" name="" id="txtTask">
+		<input type="button" value="Add Task" id="btnAdd">
+		<input type="button" value="Remove Completed" id="btnRemoveCompleted">
+		<ol id="taskList">
+			<li>Task - 1</li>
+			<li class="completed">Task - 2</li>
+			<li>Task - 3</li>
+		</ol>
+		<div id="message"></div>
+	</div>
+</body>
+</html>
