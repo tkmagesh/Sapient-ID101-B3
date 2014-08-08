@@ -11,6 +11,9 @@
 	3. Should be able to remove completed tasks from the list
 	4. Display a message whenever a task is added or removed
 
+	5. Should be able to add a task for a particular task Type.  The task should be added to the respective list.
+	6. Should be able to add a new task type
+
 	-->
 	<style>
 	h1{
@@ -27,6 +30,11 @@
 	}
 	li{
 		cursor: pointer;
+	}
+	section{
+		margin-bottom: 20px;
+		padding-bottom: 20px;
+		border-bottom: 1px solid gray;
 	}
 	</style>
 	<script>
@@ -73,19 +81,32 @@
 <body>
 	<h1>Task Manager</h1>
 	<div class="content">
-		<label for="">Task :</label>
-		<input type="text" name="" id="txtTask">
-		<input type="button" value="Add Task" id="btnAdd">
-		<input type="button" value="Remove Completed" id="btnRemoveCompleted">
-		<ol id="taskList">
-			<li>Task - 1</li>
-			<li>Task - 2</li>
-			<li>Task - 3</li>
-			<li>Task - 4</li>
-			<li>Task - 5</li>
-			<li>Task - 6</li>
-		</ol>
+		<section class="taskTypeSection">
+			<!-- Managing task types -->
+			<label for="txtTaskType">Task Type :</label>
+			<input type="text" name="" id="txtTaskType">
+			<input type="button" value="Add Task Type" id="btnAddTaskType">
+		</section>
+		<section class="taskSection">
+			<!-- Managing tasks -->
+			<label for="">Task :</label>
+			<input type="text" name="" id="txtTask">
+			<select name="" id="taskType">
+				<option value="Personal" selected>Personal</option>
+				<option value="Official">Official</option>
+			</select>
+			<input type="button" value="Add Task" id="btnAdd">
+			<input type="button" value="Remove Completed" id="btnRemoveCompleted">
+			<ol id="taskList">
+				<li>Task - 1</li>
+				<li>Task - 2</li>
+				<li>Task - 3</li>
+				<li>Task - 4</li>
+				<li>Task - 5</li>
+				<li>Task - 6</li>
+			</ol>
 
+		</section>
 	</div>
 </body>
 </html>
