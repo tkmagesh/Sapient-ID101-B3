@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Task Manager</title>
+	<!-- 
+	Use Cases :
+	===========
+	1. Should be able to add a new task
+	2. Should be able to mark/unmark a task as "completed"
+	3. Should be able to remove completed tasks from the list
+	4. Display a message whenever a task is added or removed
+
+	5. Should be able to add a task for a particular task Type.  The task should be added to the respective list.
+	6. Should be able to add a new task type
+
+	-->
+	<link rel="stylesheet" href="style.css">
+	<script type="text/javascript" src="scripts.js"></script>
+</head>
+<body>
+	<h1>Task Manager</h1>
+	<div class="content">
+		<section class="taskTypeSection">
+			<!-- Managing task types -->
+			<label for="txtTaskType">Task Type :</label>
+			<input type="text" name="" id="txtTaskType">
+			<input type="button" value="Add Task Type" id="btnAddTaskType">
+		</section>
+		<section class="taskSection">
+			<!-- Managing tasks -->
+			<label for="">Task :</label>
+			<input type="text" name="" id="txtTask">
+			<select name="" id="taskType">
+				
+			</select>
+			<input type="button" value="Add Task" id="btnAdd">
+			<input type="button" value="Remove Completed" id="btnRemoveCompleted">
+			<div id="taskLists">
+				
+			</div>
+
+		</section>
+	</div>
+</body>
+</html>

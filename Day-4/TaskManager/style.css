@@ -1,0 +1,25 @@
+h1{
+		border-top: 2px solid blue;
+		border-bottom: 2px solid blue;
+		background-color: lightblue;
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}
+	.completed{
+		color: red;
+		text-decoration: line-through;
+		font-style: italic;
+	}
+	li{
+		cursor: pointer;
+	}
+	section{
+		margin-bottom: 20px;
+		padding-bottom: 20px;
+		border-bottom: 1px solid gray;
+	}
+	ol{
+		padding : 10px;
+		margin : 10px;
+		border : 1 px solid gray;
+	}
