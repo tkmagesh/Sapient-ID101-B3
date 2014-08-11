@@ -27,28 +27,9 @@
 	}
 
 	function onTaskItemClick(){
-		/*var $this = $(this);
-		if ($this.hasClass("completed")){
-			$this.removeClass("completed")
-		} else {
-			$this.addClass("completed")
-		}*/
 		$(this).toggleClass("completed");
 	}
 	function onBtnRemoveCompletedClick(){
-		//var $allTaskItems = $("#taskList > li");
-		
-		/*for(var i=0;i<$allTaskItems.length;i++){
-			var $taskItem = $allTaskItems.eq(i);
-			if ($taskItem.hasClass("completed"))
-				$taskItem.remove();
-		}*/
-		/*$allTaskItems.each(function(index,element){
-			var $element = $(element);
-			if ($element.hasClass("completed"))
-				$element.remove();
-		});*/
-
 		$("#taskList > li.completed").remove();
 	}
 	</script>
@@ -60,8 +41,7 @@
 	<input type="button" value="Add Task" id="btnAdd">
 	<input type="button" value="Remove Completed" id="btnRemoveCompleted">
 	<ol id="taskList">
-		<li>Learn jQuery</li>
-		<li>Master JavaScript</li>
+		
 	</ol>
 </body>
 </html>
