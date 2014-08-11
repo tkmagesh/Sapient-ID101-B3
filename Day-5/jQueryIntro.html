@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery Introduction</title>
+	<script src="jquery-2.1.1.js"></script>
+	<script>
+	function highlight(jqObj){
+		jqObj.css({
+			color : "yellow",
+			border: "2px solid red",
+			backgroundColor : "yellow"
+		});
+	}
+
+	function init(){
+		$("#btnSave").click(function(){
+			console.log("Data saved");
+		});
+	}
+
+	//window.addEventListener("DOMContentLoaded",init);
+	//$(document).ready(init);
+	$(init);
+	</script>
+</head>
+<body>
+	First Name : <input type="text" name="" id="txtFirstName" class="nameBox"><br>
+	Last Name : <input type="text" name="" id="txtLastName" class="nameBox"><br>
+	Age : <input type="text" name="" id="txtAge" class="numberBox"><br>
+	<!-- <input type="button" value="Save" id="btnSave"> -->
+	<button id="btnSave">Save</button>
+	<input type="reset" value="Reset">
+	<div id="divMessage"></div>
+</body>
+</html>
