@@ -28,23 +28,39 @@
 	<script>
 
 	$(function init(){
-		$("#btnAdd").click(onBtnAddClick);
+
+		//$("#btnAdd").click(onBtnAddClick);
+		//The on/off implemention of the above is given below:
+		$("#btnAdd").on("click",onBtnAddClick);
+
+
 		$("#btnRemoveCompleted").click(onBtnRemoveCompletedClick);
-		$("#taskList > li").click(onTaskItemClick);
+		//$("#taskList > li").click(onTaskItemClick);
+		
+		//$("#taskList").delegate("li","click",onTaskItemClick);
+		//Using "on" like "delegate"
+
+		$("#taskList").on("click","li",onTaskItemClick);
+
+		$(document.body).click(function(){
+			console.log("document.body clicked");
+		});
+
 	});
 
 	function onBtnAddClick(){
 		$("<li></li>")
 			.text($("#txtTask").val())
-			.click(onTaskItemClick)
+			//.click(onTaskItemClick)
 			.prependTo("#taskList")
 			.hide()
 			.slideDown(400);
 		displayMessage("A new task is created");
 	}
 
-	function onTaskItemClick(){
+	function onTaskItemClick(evt){
 		$(this).toggleClass("completed");
+		evt.stopPropagation();
 	}
 	function onBtnRemoveCompletedClick(){
 		var $tasksToRemove = $("#taskList > li.completed");
@@ -74,7 +90,11 @@
 	<input type="button" value="Add Task" id="btnAdd">
 	<input type="button" value="Remove Completed" id="btnRemoveCompleted">
 	<ol id="taskList">
-		
+		<li>Task - 1</li>
+		<li>Task - 2</li>
+		<li>Task - 3</li>
+		<li>Task - 4</li>
+		<li>Task - 5</li>
 	</ol>
 	<div id="messages">
 		

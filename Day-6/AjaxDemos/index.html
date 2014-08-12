@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Ajax Demos</title>
+	<script src="jquery-2.1.1.js"></script>
+	<script>
+	$(function(){
+		$("#btnLoadHtml").click(onBtnLoadHTMLClick);
+		function onBtnLoadHTMLClick(){
+			/*
+			$.get("htmlfragment.html",function(data){
+				$("#htmlPlaceholder").html(data);
+			},"html");
+			*/
+			$("#htmlPlaceholder").load("htmlfragment.html");
+		}
+
+		$("#btnLoadProducts").click(onBtnLoadProductsClick);
+		function onBtnLoadProductsClick(){
+			$.get("products.json",function(products){
+				//console.dir(products);
+				var productTable = "<table>";
+				for(var i=0;i<products.length;i++){
+					var product = products[i];
+					productTable += "<tr><td>";
+					productTable += product.id;
+					productTable += "</td><td>";
+					productTable += product.name;
+					productTable += "</td><td>";
+					productTable += product.cost;
+					productTable += "</td></tr>";
+				}
+				productTable += "</table>";
+				$("#productsListPlaceholder").html(productTable);
+			},"json");
+		}
+	});
+	</script>
+</head>
+<body>
+	<div id="htmlPlaceholder"></div>
+	<input type="button" value="Load HTML" id="btnLoadHtml">
+	<hr>
+	<div id="productsListPlaceholder"></div>
+	<input type="button" value="Load Products" id="btnLoadProducts">
+</body>
+</html>
