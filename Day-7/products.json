@@ -1,0 +1,8 @@
+[
+	{"id" : 1, "name" : "pen", "cost" : 120, "category" : "stationary"},
+	{"id" : 2, "name" : "pencil", "cost" : 12, "category" : "stationary"},
+	{"id" : 3, "name" : "marker", "cost" : 200, "category" : "stationary"},
+	{"id" : 4, "name" : "Shirt", "cost" : 2000, "category" : "apparel"},
+	{"id" : 5, "name" : "Jeans", "cost" : 1500, "category" : "apparel"},
+	{"id" : 6, "name" : "Kurta", "cost" : 9000, "category" : "apparel"},
+]

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Task Manager</title>
+	<style>
+	.completed{
+		color : red;
+		text-decoration: line-through;
+		font-style: italic;
+	}
+	</style>
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script>
+
+	$(function init(){
+		$("#btnAdd").click(onBtnAddClick);
+		$("#btnRemoveCompleted").click(onBtnRemoveCompletedClick);
+		$("#taskList > li").click(onTaskItemClick);
+	});
+
+	function onBtnAddClick(){
+		$("<li><input type='checkbox'></input><span></span></li>")
+			.appendTo("#taskList")
+			.find("span")
+			.dblclick(function(){
+				var taskName = $(this).text();
+				var $editBox = $("<input type='text'></input>")
+					.val(taskName)
+					.keypress(function(arg){
+						if (arg.keyCode === 13){
+							var newTaskName = $(this).val();
+							var $parent = $(this).parent('span');
+							$(this).remove();
+							$parent.text(newTaskName);
+						}
+					});
+				$(this).html($editBox);
+			})
+			.text($("#txtTask").val())
+			.end()
+			.find(":checkbox")
+			.click(onTaskItemClick)
+	}
+
+	function onTaskItemClick(){
+		$(this).parent("li").toggleClass("completed");
+	}
+	function onBtnRemoveCompletedClick(){
+		$("#taskList > li.completed").remove();
+	}
+	</script>
+</head>
+<body>
+	<h1>Task Manager</h1>
+	<label for="txtTask">Task :</label>
+	<input type="text" name="" id="txtTask">
+	<input type="button" value="Add Task" id="btnAdd">
+	<input type="button" value="Remove Completed" id="btnRemoveCompleted">
+	<ol id="taskList">
+		
+	</ol>
+</body>
+</html>
